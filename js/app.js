@@ -5,8 +5,7 @@
 var startGame = false;
 var userQuit = false;
 var myScore = 0;
-var myStatus = null;
-var userName;
+var userName = 'John Doe';
 var userAnswer1, userAnswer2, userAnswer3, userAnswer4, userAnswer5;
 
 var myQuestion1 = 'What is Ben\'s last name?';
@@ -30,10 +29,10 @@ var checkAnswer = function(array, response) {
   else {
     return console.log('Sorry, that\'s not correct.');
   }
-}
+};
 
 // Trivia Launcher
-function quizLaunch() {
+var quizLaunch = function() {
   startGame = confirm('Ready player one?');
   
   // Begin Game
@@ -41,25 +40,31 @@ function quizLaunch() {
     userName = prompt('Okay! First, tell me your name: ');
     
     // Question 1
-    userAnswer1 = prompt(myQuestion1);
-    console.log('Q1: ' + userAnswer1);
-    var normalize1 = userAnswer1.toLowerCase();
-    checkAnswer(myAnswer1, normalize1);
+    if (userQuit !== true) {
+      userAnswer1 = prompt(myQuestion1);
+      console.log('Q1: ' + userAnswer1);
+      var normalize1 = userAnswer1.toLowerCase();
+      checkAnswer(myAnswer1, normalize1);
+    }
 
     // Question 2
-    if (userAnswer1 !== false && userAnswer1 !== null) { 
+    if (userQuit !== true) { 
       userAnswer2 = prompt(myQuestion2);
       console.log('Q2: ' + userAnswer2);
       var normalize2 = userAnswer2.toLowerCase();
       checkAnswer(myAnswer2, normalize2);
-    } 
+    }
+    else { userQuit = true; }
+    
     // Question 3
-    if (userAnswer2 !== false && userAnswer2 !== null) {
+    if (userQuit !== true) {
       userAnswer3 = prompt(myQuestion3);
       console.log('Q3: ' + userAnswer3);
       var normalize3 = userAnswer3.toLowerCase();
       checkAnswer(myAnswer3, normalize3);
     }
+    else { userQuit = true; }
+
     // Question 4
     if (userAnswer3 !== false && userAnswer3 !== null) {
       userAnswer4 = prompt(myQuestion4);
@@ -67,6 +72,8 @@ function quizLaunch() {
       var normalize4 = userAnswer4.toLowerCase();
       checkAnswer(myAnswer4, normalize4);
     }
+    else { userQuit = true; }
+
     // Question 5
     if (userAnswer4 !== false && userAnswer4 !== null) {
       userAnswer5 = prompt(myQuestion5);
@@ -74,6 +81,7 @@ function quizLaunch() {
       var normalize5 = userAnswer5.toLowerCase();
       checkAnswer(myAnswer5, normalize5);
     }
+    else { userQuit = true; }
   }
   // End Game
   else {
@@ -82,11 +90,11 @@ function quizLaunch() {
 
   // Display Results
   if(userQuit) {
-    alert('Thanks for playing!');
+    alert('Okay! Thanks for playing!');
   }
   else {
     console.log('Final score = ' + myScore + ' out of 5.');
-    myStatus = alert(
+    alert(
       userName + ', you scored ' + myScore + ' out of 5. Here were the possible answers: \n\n' + 
       '1. ' + myQuestion1 + '\n' + myAnswer1 + '\n\n' +
       '2. ' + myQuestion2 + '\n' + myAnswer2 + '\n\n' +
@@ -95,4 +103,4 @@ function quizLaunch() {
       '5. ' + myQuestion5 + '\n' + myAnswer5 + '\n'
     );
   }
-}     
+};
