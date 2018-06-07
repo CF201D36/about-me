@@ -7,3 +7,7 @@ This is a demo for 201d36, creating a new repository for our About Me project. A
 
 # Sourced Content
 * **Eric Meyer's Reset CSS** | v2.0 | 20110126 | License: none (public domain): http://meyerweb.com/eric/tools/css/reset/
+
+# paired programming team
+* driver Jacques
+* navigator ben Harris 

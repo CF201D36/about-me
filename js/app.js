@@ -58,15 +58,8 @@ if (startGame === true) {
       // checkAnswer(myAnswer1, normalize1);
 
       // Repetitive Solution Checker
-      if(myAnswer1.includes(normalize1)) {
-        myScore++;
-        console.log('Correct!');
-        myRecord.push('Correct');
-      }
-      else {
-        console.log('Sorry, that\'s not correct.');
-        myRecord.push('Incorrect');
-      }
+      checkSolution(myAnswer1,normalize1);
+     
     } else { userQuit = true; }
   }
 
@@ -79,15 +72,8 @@ if (startGame === true) {
       // checkAnswer(myAnswer2, normalize2);
 
       // Repetitive Solution Check
-      if(myAnswer2.includes(normalize2)) {
-        myScore++;
-        console.log('Correct!');
-        myRecord.push('Correct');
-      }
-      else {
-        console.log('Sorry, that\'s not correct.');
-        myRecord.push('Incorrect');
-      }
+      checkSolution(myAnswer2,normalize2);
+      
     } else { userQuit = true; }
   }
   
@@ -101,19 +87,10 @@ if (startGame === true) {
       // checkAnswer(myAnswer3, normalize3);
 
       // Repetitive Solution Check
-      if(myAnswer3.includes(normalize3)) {
-        myScore++;
-        console.log('Correct!');
-        myRecord.push('Correct');
-      }
-      else {
-        console.log('Sorry, that\'s not correct.');
-        myRecord.push('Incorrect');
-      }
+      checkSolution(myAnswer3,normalize3);
     } else { userQuit = true; }
   }
   
-
   // Question 4
   if (userQuit !== true) {
     userAnswer4 = prompt(myQuestion4);
@@ -123,15 +100,7 @@ if (startGame === true) {
       // checkAnswer(myAnswer4, normalize4);
 
       // Repetitive Solution Check
-      if(myAnswer4.includes(normalize4)) {
-        myScore++;
-        console.log('Correct!');
-        myRecord.push('Correct');
-      }
-      else {
-        console.log('Sorry, that\'s not correct.');
-        myRecord.push('Incorrect');
-      }
+      checkSolution(myAnswer4,normalize4);
     } else { userQuit = true; }
   }
   
@@ -144,15 +113,7 @@ if (startGame === true) {
       // checkAnswer(myAnswer5, normalize5);
 
       // Repetitive Solution Check
-      if(myAnswer5.includes(normalize5)) {
-        myScore++;
-        console.log('Correct!');
-        myRecord.push('Correct');
-      }
-      else {
-        console.log('Sorry, that\'s not correct.');
-        myRecord.push('Incorrect');
-      }
+      checkSolution(myAnswer5,normalize5);
     } else { userQuit = true; }
   }
 
@@ -283,4 +244,17 @@ else {
     '6. ' + myQuestion6 + '\n' + myRecord[5] + '\n\n' +
     '7. ' + myQuestion7 + '\n' + myRecord[6] + '\n'
   );
+}
+
+// Repetitive Solution Checker function
+function checkSolution(answer,normal){
+  if(answer.includes(normal)) {
+    myScore++;
+    console.log('Correct!');
+    myRecord.push('Correct');
+  }
+  else {
+    console.log('Sorry, that\'s not correct.');
+    myRecord.push('Incorrect');
+  }
 }
