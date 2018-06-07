@@ -5,10 +5,10 @@
 var startGame = false;
 var userQuit = false;
 var myScore = 0;
-var myRank = ['Abyssmal', 'Pitiful', 'n00b', 'Rookie', 'Novice', 'Knight', 'Champion', 'Legend'];
+var myRank = ['Abyssmal', 'Pitiful', 'n00b', 'Rookie', 'Novice', 'Knight', 'Champion', 'Legendary'];
 var myRecord = [];
 var userName = 'John Doe';
-var userAnswer1, userAnswer2, userAnswer3, userAnswer4, userAnswer5, userAnswer6, userAnswer7;
+var userAnswer1, userAnswer2, userAnswer3, userAnswer4, userAnswer5, userAnswer7;
 
 var myQuestion1 = 'What is Ben\'s last name?';
 var myQuestion2 = 'Name one of Ben\'s four main specialities:';
@@ -23,7 +23,8 @@ var myAnswer2 = ['creator','innovator','technologist','entrepreneur'];
 var myAnswer3 = ['gamacy','gamacy.com','www.gamacy.com'];
 var myAnswer4 = ['western washington university','western', 'wwu'];
 var myAnswer5 = ['2005'];
-var myGames   = ['0 was not an option','Chrono Trigger','Super Mario Odyssey','Sky Force','Mass Effect Trilogy','The Elder Scrolls V: Skyrim','Stardew Valley','The Legend of Zelda: The Wind Waker HD','DOOM (2016)','MechWarrior 2','The Legend of Zelda: Twilight Princess HD'];
+var myGameChoices = ['0 was not an option','Chrono Trigger','Super Mario Bros. 3','Mass Effect Trilogy','The Elder Scrolls III: Morrowind','Harvest Moon','Myst','Duke Nukem 3D','Castlevania','Sky Force','The Legend of Zelda'];
+var myGameAnswers = ['Chrono Trigger','Sky Force','Mass Effect Trilogy'];
 
 // Answer Checking Function (Can't Use this until tomorrow!)
 // var checkAnswer = function(array, response) {
@@ -183,7 +184,7 @@ if (startGame === true) {
       }
       // Reduce Counter
       myAttempts--;
-    } while (myMatch !== true && myAttempts > 0);
+    } while (myMatch === false && myAttempts > 0);
     
     // Number Match Results
     if(myMatch === true) {
@@ -201,30 +202,43 @@ if (startGame === true) {
   if (userQuit !== true) {
     var myMatch7 = false;
     var myAttempts7 = 6;
+    var myMatches = [];
 
     // Guess Loop
     do {
+      var correct = false;
       userAnswer7 = parseInt(prompt(myQuestion7 + '\n' + 
       'Here is the list to choose from:\n\n' + 
-      '1 • ' + myGames[1] + '\n' + 
-      '2 • ' + myGames[2] + '\n' + 
-      '3 • ' + myGames[3] + '\n' + 
-      '4 • ' + myGames[4] + '\n' + 
-      '5 • ' + myGames[5] + '\n' + 
-      '6 • ' + myGames[6] + '\n' + 
-      '7 • ' + myGames[7] + '\n' + 
-      '8 • ' + myGames[8] + '\n' + 
-      '9 • ' + myGames[9] + '\n' + 
-      '10 • ' + myGames[10]));
-      console.log('You chose: ' + myGames[userAnswer7]);
+      '1 • ' + myGameChoices[1] + '\n' + 
+      '2 • ' + myGameChoices[2] + '\n' + 
+      '3 • ' + myGameChoices[3] + '\n' + 
+      '4 • ' + myGameChoices[4] + '\n' + 
+      '5 • ' + myGameChoices[5] + '\n' + 
+      '6 • ' + myGameChoices[6] + '\n' + 
+      '7 • ' + myGameChoices[7] + '\n' + 
+      '8 • ' + myGameChoices[8] + '\n' + 
+      '9 • ' + myGameChoices[9] + '\n' + 
+      '10 • ' + myGameChoices[10]));
+      console.log('You chose: ' + myGameChoices[userAnswer7]);
 
       // Correct match
-      if(userAnswer7 === 4) {
-        myMatch7 = true;
+      if(userAnswer7 === 1 || userAnswer7 === 3 || userAnswer7 === 9) {
+        correct = true;
+        console.log('Correct! You guessed: ' + myGameChoices[userAnswer7]);
+        alert('Yes! That\'s one of my favorite games!');
+        myMatches.push(userAnswer7);
       }
+
+      // All match
+      if(myMatches.includes(3) && myMatches.includes(3) && myMatches.includes(9)) {
+        myMatch7 = true; 
+        alert('Congratulations! You guessed them all correctly. Nice job!');
+      }
+
       // Wrong guess
-      if (myMatch7 !== true) {
-        alert('Sorry, ' + myGames[userAnswer7] + ' is not correct.');
+      if (myMatch7 !== true && correct === false) {
+        console.log('Incorrect. You guessed: ' + myGameChoices[userAnswer7]);
+        alert('That\'s a great game...but it\'s not on my top 10.');
       } 
       // Invalid response checker (undefined, NaN)
       if (isNaN(userAnswer7) || userAnswer7 === undefined || userAnswer7 === null) {
@@ -232,15 +246,18 @@ if (startGame === true) {
       }
 
       // Reduce Counter
-      myAttempts--;
-    } while (myMatch7 !== true && myAttempts7 > 0);
+      myAttempts7--;
+    } while (myMatch7 === false && myAttempts7 > 0);
+
     // If All Answers Guessed
     if(myMatch7 === true) {
-      alert('You guessed it! Nice job!');
       myScore++;
       myRecord.push('Correct');
     }
-    // Answers Missed
+    else {
+      alert('Nice try! But you didn\'t find all of the games from my Top 10 list. Better luck next time!');
+      myRecord.push('Incorrect');
+    }
   }
 }
 // End Game
