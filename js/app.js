@@ -24,7 +24,7 @@ var myAnswer3 = ['gamacy','gamacy.com','www.gamacy.com'];
 var myAnswer4 = ['western washington university','western', 'wwu'];
 var myAnswer5 = ['2005'];
 var myGameChoices = ['0 was not an option','Chrono Trigger','Super Mario Bros. 3','Mass Effect Trilogy','The Elder Scrolls III: Morrowind','Harvest Moon','Myst','Duke Nukem 3D','Castlevania','Sky Force','The Legend of Zelda'];
-var myGameAnswers = ['Chrono Trigger','Sky Force','Mass Effect Trilogy'];
+var myGameAnswers = ['Chrono Trigger','Sky Force','Mass Effect Trilogy']; // correct values for reference only
 
 // Answer Checking Function (Can't Use this until tomorrow!)
 // var checkAnswer = function(array, response) {
