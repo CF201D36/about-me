@@ -116,15 +116,15 @@ function quizLaunch() {
           myMatch = true;
         }
         if (myGuess > randNum) {
-          prompt('Sorry, ' + myGuess + ' is too high.');
+          alert('Sorry, ' + myGuess + ' is too high.');
         }
         if (myGuess < randNum) {
-          prompt('Sorry, ' + myGuess + ' is too low.');
+          alert('Sorry, ' + myGuess + ' is too low.');
         }
 
         // String Catcher
         if (isNaN(myGuess)) {
-          prompt('Sorry, that was not a number. Please try again.');
+          alert('Sorry, that was not a number. Please try again.');
         }
         // Reduce Counter
         myAttempts--;
@@ -151,8 +151,8 @@ function quizLaunch() {
       // Guess Loop
       do {
         var correct = false;
-        userAnswer7 = parseInt(prompt(myQuestion7 + '\n' +
-        'Here is the list to choose from:\n\n' +
+        userAnswer7 = parseInt(prompt(myQuestion7 + ' You have ' + myAttempts7 + ' guesses remaining.\n\n' +
+        'Here are your choices:\n\n' +
         '1 • ' + myGameChoices[1] + '\n' +
         '2 • ' + myGameChoices[2] + '\n' +
         '3 • ' + myGameChoices[3] + '\n' +
@@ -189,9 +189,10 @@ function quizLaunch() {
           alert('Sorry, that is not a valid response. Please enter a number.');
         }
 
-        // Reduce Counter
+        // Final Steps
+        if (userAnswer7 === false) {userQuit = true;}
         myAttempts7--;
-      } while (myMatch7 === false && myAttempts7 > 0);
+      } while (myMatch7 === false && myAttempts7 > 0 && userQuit !== true);
 
       // If All Answers Guessed
       if(myMatch7 === true) {
