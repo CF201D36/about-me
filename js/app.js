@@ -1,32 +1,32 @@
 // Safety goggles ON!
 'use strict';
 
-// Setup Variables
-var startGame = false;
-var userQuit = false;
-var myScore = 0;
-var myRank = ['Abyssmal', 'Pitiful', 'n00b', 'Rookie', 'Novice', 'Knight', 'Champion', 'Legendary'];
-var myRecord = [];
-var userName = 'John Doe';
-var userAnswer1, userAnswer2, userAnswer3, userAnswer4, userAnswer5, userAnswer7;
-
-var myQuestion1 = 'What is Ben\'s last name?';
-var myQuestion2 = 'Name one of Ben\'s four main specialities:';
-var myQuestion3 = 'What is the name of the site he founded?';
-var myQuestion4 = 'Which college did Ben attend?';
-var myQuestion5 = 'In what year did Ben graduate from college?';
-var myQuestion6 = 'I have a seemingly random number in mind. Care to guess what it is?';
-var myQuestion7 = 'What is my favorite video game?';
-
-var myAnswer1 = ['harris'];
-var myAnswer2 = ['creator','innovator','technologist','entrepreneur'];
-var myAnswer3 = ['gamacy','gamacy.com','www.gamacy.com'];
-var myAnswer4 = ['western washington university','western', 'wwu'];
-var myAnswer5 = ['2005'];
-var myGameChoices = ['Sorry, \'0\' was not an option','Chrono Trigger','Super Mario Bros. 3','Mass Effect Trilogy','The Elder Scrolls III: Morrowind','Harvest Moon','Myst','Duke Nukem 3D','Castlevania','Sky Force','The Legend of Zelda'];
-
 // Trivia Launcher (HTML Button)
 function quizLaunch() {
+  // Setup Variables
+  var startGame = false;
+  var userQuit = false;
+  var myScore = 0;
+  var myRank = ['Abyssmal', 'Pitiful', 'n00b', 'Rookie', 'Novice', 'Knight', 'Champion', 'Legendary'];
+  var myRecord = [];
+  var userName = 'John Doe';
+  var userAnswer1, userAnswer2, userAnswer3, userAnswer4, userAnswer5, userAnswer7;
+
+  var myQuestion1 = 'What is Ben\'s last name?';
+  var myQuestion2 = 'Name one of Ben\'s four main specialities:';
+  var myQuestion3 = 'What is the name of the site he founded?';
+  var myQuestion4 = 'Which college did Ben attend?';
+  var myQuestion5 = 'In what year did Ben graduate from college?';
+  var myQuestion6 = 'I have a seemingly random number in mind. Care to guess what it is?';
+  var myQuestion7 = 'What is my favorite video game?';
+
+  var myAnswer1 = ['harris'];
+  var myAnswer2 = ['creator','innovator','technologist','entrepreneur'];
+  var myAnswer3 = ['gamacy','gamacy.com','www.gamacy.com'];
+  var myAnswer4 = ['western washington university','western', 'wwu'];
+  var myAnswer5 = ['2005'];
+  var myGameChoices = ['Sorry, \'0\' was not an option','Chrono Trigger','Super Mario Bros. 3','Mass Effect Trilogy','The Elder Scrolls III: Morrowind','Harvest Moon','Myst','Duke Nukem 3D','Castlevania','Sky Force','The Legend of Zelda'];
+  
   // Welcome Message
   startGame = confirm('Ready player one?');
 
@@ -228,17 +228,16 @@ function quizLaunch() {
       '7. ' + myQuestion7 + '\n' + myRecord[6] + '\n'
     );
   }
-}
-
-// Repetitive Solution Checker function
-function checkSolution(answer,normal){
-  if(answer.includes(normal)) {
-    myScore++;
-    console.log('Correct!');
-    myRecord.push('Correct');
-  }
-  else {
-    console.log('Sorry, that\'s not correct.');
-    myRecord.push('Incorrect');
+  // Repetitive Solution Checker function
+  function checkSolution(answer,normal){
+    if(answer.includes(normal)) {
+      myScore++;
+      console.log('Correct!');
+      myRecord.push('Correct');
+    }
+    else {
+      console.log('Sorry, that\'s not correct.');
+      myRecord.push('Incorrect');
+    }
   }
 }
