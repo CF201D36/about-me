@@ -26,7 +26,7 @@ function quizLaunch() {
   var myAnswer4 = ['western washington university','western', 'wwu'];
   var myAnswer5 = ['2005'];
   var myGameChoices = ['Sorry, \'0\' was not an option','Chrono Trigger','Super Mario Bros. 3','Mass Effect Trilogy','The Elder Scrolls III: Morrowind','Harvest Moon','Myst','Duke Nukem 3D','Castlevania','Sky Force','The Legend of Zelda'];
-  
+
   // Welcome Message
   startGame = confirm('Ready player one?');
 
